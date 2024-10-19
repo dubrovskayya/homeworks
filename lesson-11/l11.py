@@ -5,7 +5,7 @@ try:
 except ValueError:
     print('not a number!')
 else:
-    print('success')
+    print('succcess')
 print()
 
 #2
