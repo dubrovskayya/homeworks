@@ -40,7 +40,7 @@ print()
 
 #5
 try:
-    new_list=[float(i) for i in input('input a list of numbers: ').split()]
+    new_list=[float(i) for i in input('input a list of numbers:').split()]
     res=sum(new_list)/len(new_list)
 except ValueError:
     print('list should contain only numbers!')
