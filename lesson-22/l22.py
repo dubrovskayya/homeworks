@@ -43,13 +43,14 @@ try:
         LoanDate DATE NOT NULL,
         ReturnDate DATE ,
         FOREIGN KEY (BookID) REFERENCES Books(BookID),
-        FOREIGN KEY (BorrowerID) REFERENCES Borrowers(BorrowerID)
+        FOREIGN KEY (BorrowerID) REFERENCES Borrowers(BorrowerID),
+        CHECK (ReturnDate>LoanDate)
     );
     """
 
     # transaction for creating tables
     with eng.connect() as connect:
-        with connect.begin():  # начинаем транзакцию
+        with connect.begin():
             connect.execute(text(add_books))
             connect.execute(text(add_borrowers))
             connect.execute(text(add_loans))
